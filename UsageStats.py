@@ -13,6 +13,7 @@ To view when application was last used "on device":
 adb shell am start -n com.android.settings/.UsageStatsActivity 
 
 Example:
+user@s0-18:~/Desktop/Work$ adb pull /data/system/usagestats/0/daily/1438905600000
 user@s0-18:~/Desktop/Work$ python3 parseUsageStats.py 1438905600000
 
 :: Package last activity ::
