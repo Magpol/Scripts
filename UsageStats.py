@@ -1,14 +1,41 @@
 #!/usr/bin/env python
 """
 
-Parse usagestats from usagestats file - /data/system/usagestats/USER/daily
-Events taken from from: https://developer.android.com/reference/android/app/usage/UsageEvents.Event.html (API 21+)
+2019 @ https://github.com/Magpol
 
-To view "on device" when application was last used:
+Parse usagestats from usagestats file(s) found in - /data/system/usagestats/USER/daily/
+(Files are named from timestamp. Files are updated ~1hr)
+
+Eventlist taken from from: https://developer.android.com/reference/android/app/usage/UsageEvents.Event.html (API 21+)
+
+To view when application was last used "on device":
 
 adb shell am start -n com.android.settings/.UsageStatsActivity 
 
-2019 @ https://github.com/Magpol
+Example:
+user@s0-18:~/Desktop/Work$ python3 parseUsageStats.py 1438905600000
+
+:: Package last activity ::
+2015-08-07 16:01:36 :: com.truecaller :: MOVE_TO_BACKGROUND - component moved to the background
+2015-08-07 18:34:26 :: com.whatsapp :: MOVE_TO_BACKGROUND - component moved to the background
+2015-08-07 18:35:06 :: com.truecaller.phoneapp :: MOVE_TO_BACKGROUND - component moved to the background
+2015-08-07 23:15:06 :: com.af.synapse :: MOVE_TO_BACKGROUND - component moved to the background
+2015-08-07 15:43:30 :: com.android.mms :: MOVE_TO_BACKGROUND - component moved to the background
+2015-08-07 15:58:14 :: com.android.server.telecom :: MOVE_TO_BACKGROUND - component moved to the background
+2015-08-07 16:01:26 :: com.android.dialer :: MOVE_TO_BACKGROUND - component moved to the background
+2015-08-08 01:05:58 :: com.cyanogenmod.trebuchet :: MOVE_TO_BACKGROUND - component moved to the background
+
+:: Timeline ::
+2015-08-07 11:00:57 :: com.cyanogenmod.trebuchet :: MOVE_TO_FOREGROUND - component moved to the foreground
+2015-08-07 11:00:57 :: com.cyanogenmod.trebuchet :: MOVE_TO_BACKGROUND - component moved to the background
+2015-08-07 11:11:11 :: com.cyanogenmod.trebuchet :: MOVE_TO_FOREGROUND - component moved to the foreground
+2015-08-07 11:11:27 :: com.cyanogenmod.trebuchet :: MOVE_TO_BACKGROUND - component moved to the background
+2015-08-07 11:11:27 :: com.whatsapp :: MOVE_TO_FOREGROUND - component moved to the foreground
+2015-08-07 11:11:27 :: com.whatsapp :: MOVE_TO_BACKGROUND - component moved to the background
+2015-08-07 11:11:27 :: com.whatsapp :: MOVE_TO_FOREGROUND - component moved to the foreground
+2015-08-07 11:11:30 :: com.whatsapp :: MOVE_TO_BACKGROUND - component moved to the background
+2015-08-07 11:11:30 :: com.android.systemui :: MOVE_TO_FOREGROUND - component moved to the foreground
+...
 
 """
 
